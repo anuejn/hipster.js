@@ -1,0 +1,169 @@
+/* general definitions */
+* {
+    box-sizing: border-box;
+}
+a{
+    color: #39f;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+}
+h1, h2 {
+    font-family: 'Righteous', cursive;
+    position: absolute;
+    left: 50%;
+    top: 5vh;
+    transform: translateX(-50%);
+}
+h1 {
+    font-size: 5vh
+}
+h2{
+    font-size: 3vh;
+}
+p {
+    max-width: 500px;
+}
+.shadow {
+    text-shadow: 0 0 100px #000;
+}
+
+
+/* the cover image */
+#cover {
+    width: 100%;
+    height: 100%;
+    
+    position: fixed;
+}
+#cover:before {
+    content: "";
+    background-image: url(https://tctechcrunch2011.files.wordpress.com/2015/04/codecode.jpg?w=738);
+    background-size: cover;
+    background-position: center;
+    widows: 100%;
+    height: 100%;
+    display: block;
+    filter: brightness(.65) contrast(1.5) sepia(.3);
+}
+
+
+/* page definitions */
+.page {
+    width: 100%;
+    min-height: 100%;
+    z-index: 100;
+    position: relative;
+    margin: 0;
+    
+    display: flex;
+    flex-wrap: wrap;
+    
+    padding: 10vh;
+    padding-top: 20vh;
+    
+    justify-content: center;
+}
+.page.varheight {
+    min-height: inherit;
+}
+
+/* first (cover-) page */
+.page:nth-child(2) {
+    background-color: rgba(0,0,0,0) !important;
+}
+.page:nth-child(2) > h1 {
+    position: absolute;
+    top: 25vh;
+    left: -100vw;
+    transform: translate(-50%, -50%);
+    
+    font-size: 10vw;
+    
+    width: 70%;
+    color: white;
+    
+    animation: slide 1s forwards;
+
+}
+.page:nth-child(2) > h2 {
+    position: absolute;
+    top: calc(25vh + 10vw);
+    left: -100vw;
+    transform: translateX(-50%);
+    font-size: 3.5vw;
+    width: 70%;
+    color: #fff;
+    
+    animation: slide 1s forwards;
+    animation-delay: 1s;
+}
+@keyframes slide {
+    100% { left: 50%; }
+}
+
+.page:nth-child(2) > i {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 10vw;
+    font-weight: lighter;
+    
+    opacity: 0;
+    animation: appear 1s forwards,
+        jump 5s linear alternate infinite;
+    animation-delay: 5s;
+}
+@keyframes appear {
+    100% { opacity: 1; }
+}
+@keyframes jump {
+    0% {bottom: 10%}
+    95% {bottom: 10%}
+    100% { bottom: 12% }
+}
+
+
+.page:nth-child(odd) {
+    background-color: #000;
+    color: #fff;
+}
+.features > div {
+    padding-top: 5vh;
+    padding-bottom: 10vh;
+    padding: 5%;
+    width: 30%;
+    min-width: 250px;
+    
+    text-align: left;
+}
+.features .fa {
+    display: block !important;
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 100px
+}
+.features > div > b {
+    font-weight: 900;
+    display: block;
+    font-size: 150%;
+    text-align: right;
+    padding-bottom: 15px;
+}
+
+.page:nth-child(even) {
+    background-color: #fff;
+    color: #000;
+}
+#end {
+    color: #fff;
+    background-color: rgba(0,0,0,0) !important;
+}
