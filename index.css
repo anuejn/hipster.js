@@ -29,6 +29,8 @@ h2{
 }
 p {
     max-width: 500px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .shadow {
     text-shadow: 0 0 100px #000;
